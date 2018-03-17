@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+    <form data-registration="form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" id="username" autofocus required pattern="[a-zA-Z\s]+" maxlength="32"/>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" autofocus required pattern="[a-zA-Z\d]+[\s]*" maxlength="32"/>
+      </div>
+      <div class="form-group">
+        <label for="confirmP">Confirm Password</label>
+        <input type="password" class="form-control" name="confirmP" id="confirmP" autofocus required pattern="[a-zA-Z\d]+[\s]*" maxlength="32"/>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+    <!-- jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <script type="text/javascript" src="scripts/formHandler.js"></script>
+    <script type="text/javascript" src="scripts/userreg.js"></script>
+
+  </body>
+</html>
