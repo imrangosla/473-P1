@@ -11,15 +11,15 @@
     <form data-registration="form">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" name="username" id="username" autofocus required pattern="[a-zA-Z\s]+" maxlength="32"/>
+        <input type="text" class="form-control" name="username" id="username" autofocus required pattern="[a-zA-Z0-9\-_]+" maxlength="32"/>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" name="password" id="password" autofocus required pattern="[a-zA-Z\d]+[\s]*" maxlength="32"/>
+        <input type="password" class="form-control" name="password" id="password" autofocus required maxlength="32"/>
       </div>
       <div class="form-group">
         <label for="confirmP">Confirm Password</label>
-        <input type="password" class="form-control" name="confirmP" id="confirmP" autofocus required pattern="[a-zA-Z\d]+[\s]*" maxlength="32"/>
+        <input type="password" class="form-control" name="confirmP" id="confirmP" autofocus required maxlength="32"/>
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
       <button type="reset" class="btn btn-default">Reset</button>
