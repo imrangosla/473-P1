@@ -1,16 +1,10 @@
 (function(window) {
   var $ = window.jQuery;
-  var username;
-  var cardMade = false;
-  var oldCard;
-
 
   //check if user is not logged in
   dpd.profiles.me(function(user) {
     if (!user) {
       location.href = "/index.html";
-    } else {
-      username = user;
     }
   });
 
@@ -33,42 +27,46 @@
   var formHandler = new FormHandler(FORM_SELECTOR);
 
   //check if user has card already
-  var check = function(userN) {
+  var check = function(userN, data) {
     dpd.cards.get({
-      user: userN
+      userID: userN['id']
     }, function(results, error) {
-      if(error) {
+      if (error) {
         console.log(error);
+        return;
+      } else if (results.length != 0) {
+        data.id = results[0].id;
       }
-      else {
-        cardMade = true;
-        oldCard = results[0];
-      }
+      //console.log(data);
+      dpd.cards.post(data).then(function(todo) {
+        console.log(todo);
+        alert('Business card updated!');
+      }, function(err) {
+        console.log(err); // display an error if the request failed
+      });
+      return;
     });
-  };
-  check(username);
-
+  }; //end of check
 
   formHandler.addSubmitHandler(function(data) {
+    var submit = new Object();
     //form validations
 
+    //get user id
+    //check if user is not logged in
+    dpd.profiles.me(function(user) {
+      if (user) {
+        //add the username associated
+        submit.userId = user['id'];
+        submit.user = user.username;
+        submit.card = data;
 
-    //submit
-    //add the username associated
-    data.user = username;
-    //add id to update card instead if already made
-    if(cardMade) {data.id = oldCard.id;}
-    //console.log(data);
-
-
-    dpd.cards.post(data).then(function(todo) {
-      // do something with todo
-      console.log(todo);
-      alert('Business card submitted!')
-    }, function(err) {
-      // do something with the error
-      console.log(err); // display an error if the request failed
+        //add id to update card instead if already made and post
+        check(user, submit);
+      }
     });
-  });
+  }); //end form handler
+
+
 
 })(window);

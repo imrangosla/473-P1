@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+  </head>
+  <body>
+    <div id="test"></div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+    <!-- jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <script src="/dpd.js" type="text/javascript"></script>
+
+    <script>
+      var $ = window.jQuery; 
+      var profile = window.location.search.substr(1).split("=");
+      if(profile[0] == 'user') {
+        dpd.cards.get({user: profile[1]}, function(results, error) {
+          document.getElementById("test").innerHTML = JSON.stringify(results);
+          console.log(results, error);
+
+        });
+      }
+
+
+      //check(data1);
+    </script>
+
+  </body>
+</html>

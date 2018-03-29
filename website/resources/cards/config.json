@@ -1,28 +1,28 @@
 {
 	"type": "Collection",
 	"properties": {
-		"user": {
-			"name": "user",
-			"type": "object",
-			"typeLabel": "object",
+		"userId": {
+			"name": "userId",
+			"type": "string",
+			"typeLabel": "string",
 			"required": true,
-			"id": "user",
+			"id": "userId",
 			"order": 0
 		},
-		"name": {
-			"name": "name",
+		"user": {
+			"name": "user",
 			"type": "string",
 			"typeLabel": "string",
 			"required": false,
-			"id": "name",
+			"id": "user",
 			"order": 1
 		},
-		"email": {
-			"name": "email",
-			"type": "string",
-			"typeLabel": "string",
+		"card": {
+			"name": "card",
+			"type": "object",
+			"typeLabel": "object",
 			"required": false,
-			"id": "email",
+			"id": "card",
 			"order": 2
 		}
 	}
