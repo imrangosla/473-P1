@@ -2,7 +2,7 @@
   //check if user is logged in already
   dpd.profiles.me(function(user) {
     if (user) {
-      location.href = "/index.html";
+      location.href = "/create.html";
     }
   });
 
