@@ -20,18 +20,15 @@
     <script src="/dpd.js" type="text/javascript"></script>
 
     <script>
-      var $ = window.jQuery; 
+      var $ = window.jQuery;
       var profile = window.location.search.substr(1).split("=");
+      profile[1] = profile[1].toLowerCase();
       if(profile[0] == 'user') {
         dpd.cards.get({user: profile[1]}, function(results, error) {
           document.getElementById("test").innerHTML = JSON.stringify(results);
           console.log(results, error);
-
         });
       }
-
-
-      //check(data1);
     </script>
 
   </body>

@@ -1,12 +1,21 @@
 (function(window) {
   var $ = window.jQuery;
 
+
   //check if user is not logged in
   dpd.profiles.me(function(user) {
     if (!user) {
       location.href = "/index.html";
     }
+    //view card button
+    var cardBtn = $('#viewcard')[0];
+    cardBtn.onclick = function() {
+      //console.log(user.username);
+      location.href = "/card.html?user=" + user.username;
+    };
   });
+
+
 
   //log out button
   var logoutBtn = $('#logout')[0];
