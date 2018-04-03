@@ -40,21 +40,18 @@
         profile[1] = profile[1].toLowerCase();
         if(profile[0] == 'user') {
           dpd.cards.get({user: profile[1]}, function(results, error) {
-            //document.getElementById("name").innerHTML = JSON.stringify(results);
+            //document.getElementById("card").innerHTML = JSON.stringify(results);
             //console.log(results, error);
+            if(results == null) {
+              $("#card").append("User Not Found!"); 
+            }
             document.title = results[0].card.name;
-            
-              $("#card").addClass("name");
-              $("#card").addClass("email");
-              $("#card").addClass("job");
-              $("#card").addClass("bio");
-              $("#card").addClass("linkedin");
-            
-              $("#card").html(results[0].card.name);
-              $("#card").html(results[0].card.email);
-              $("#card").html(results[0].card.job);
-              $("#card").html(results[0].card.bio);
-              $("#card").html(results[0].card.linkedin);
+
+            $("#card").append('<span class="name">'+ results[0].card.name +'</span>');
+            $("#card").append('<span class="email">' + results[0].card.email +'</span>');
+            $("#card").append('<span class="job">' + results[0].card.job +'</span>');
+            $("#card").append('<span class="bio">' + results[0].card.bio +'</span>');
+            $("#card").append('<span class="linked">' + results[0].card.linkedin +'</span>');
           });
         }
       </script>
