@@ -18,7 +18,7 @@ Website where a users can create their own “business card” and link to perso
 1. To be able to use dpd type: $ npm install  
     * This will install all npm packages needed for deployd 
 1. To start type dpd -d 
-1. Deployd should open a new tab in chrome, press the 'preview' button on top right to view the website at localhost
+1. Deployd should open a new tab in chrome, press the 'open' button on top right to view the website at localhost
 
 ## How to Use 
 1. First page is home page able to see examples for cards and can login or sign up. 
