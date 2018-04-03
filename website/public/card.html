@@ -23,7 +23,7 @@
   </header>
 
   <body>
-    <div id="name"></div>
+    <div id="card"></div>
 
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
@@ -43,11 +43,18 @@
             //document.getElementById("name").innerHTML = JSON.stringify(results);
             //console.log(results, error);
             document.title = results[0].card.name;
-              $("#name").append(results[0].card.name);
-              $("#name").append(results[0].card.email);
-              $("#name").append(results[0].card.job);
-              $("#name").append(results[0].card.bio);
-              $("#name").append(results[0].card.linkedin);
+            
+              $("#card").addClass("name");
+              $("#card").addClass("email");
+              $("#card").addClass("job");
+              $("#card").addClass("bio");
+              $("#card").addClass("linkedin");
+            
+              $("#card").html(results[0].card.name);
+              $("#card").html(results[0].card.email);
+              $("#card").html(results[0].card.job);
+              $("#card").html(results[0].card.bio);
+              $("#card").html(results[0].card.linkedin);
           });
         }
       </script>
