@@ -17,9 +17,11 @@
       <nav>
         <ul>
           <li><a href="/index.html">Home</a></li>
-          <li><a href="/signup.html" class="button-sign-in">Sign-Up</a></li>
-          <li><a href="/login.html">Login</a></li>
           <li><a href="#">Search</a></li>
+          <li class="logout"><a href="/create.html">Create Card</a></li>
+          <li class="hide"><a href="/signup.html" class="button-sign-in">Sign-Up</a></li>
+          <li class="hide" ><a class="hide" href="/login.html">Login</a></li>
+          <li class="logout"><a id="logout" href="#">Log out</a></li>
         </ul>
       </nav>
     </div>
@@ -39,7 +41,32 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
       <script src="/dpd.js" type="text/javascript"></script>
       <script type="text/javascript" src="scripts/formHandler.js"></script>
+      <script>
+      var $ = window.jQuery;
 
+      //check if user is not logged in
+      dpd.profiles.me(function(user) {
+        if (!user) {
+          $('.logout').hide();
+          $('.hide').show();
+        }
+        else {
+          $('.hide').hide();
+          $('.logout').show();
+        }
+      });
+
+      //log out button
+      var logoutBtn = $('#logout')[0];
+      logoutBtn.onclick = function() {
+        dpd.profiles.logout(function(result, error) {
+          if (error) {
+            alert(error);
+          }
+          location.href = "/index.html";
+        });
+      };
+      </script>
 
 </body>
 </html>

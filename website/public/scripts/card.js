@@ -15,8 +15,6 @@
     };
   });
 
-
-
   //log out button
   var logoutBtn = $('#logout')[0];
   logoutBtn.onclick = function() {
