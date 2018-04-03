@@ -1,15 +1,16 @@
 body {
   margin: 0;
   font-family: 'IBM Plex Sans', sans-serif;
-  background: white;
+  background: #F5F5F5;
   font-weight: 400;
   text-align: center;
+
 }
 
 .container {
   width: 88%;
   margin: 0 auto;
-  
+
 }
 
 header {
@@ -93,10 +94,39 @@ form {
 
 }
 
-
 .create-form {
   padding-top: 5%;
   bottom: 50%;
   top:50%;
   left:50%;
+}
+
+#card {
+  background-color: #FAFAFA;
+  text-align: left;
+  border: 1px solid #424242;
+  margin: 0 auto;
+  width: 400px;
+  padding: 10px;
+  bottom: 50%;
+  top:50%;
+  left:50%;
+  transform: translate(0%, 50%);
+}
+
+.name {
+
+  font-size: 30px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+
+.subtitle {
+  text-align: left;
+  font-weight: 600;
+}
+
+.info {
+  padding-bottom: 50px;
+
 }
