@@ -3,20 +3,24 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Me_Card</title>
+  <title>Me_Card: Example</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/styles.css">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <header>
   <div class="container">
-    <div class="logo-text">Me_Card</div>
+    <div class="logo-text">Me_Card: Example</div>
     <nav>
       <ul>
         <li><a href="/index.html">Home</a></li>
-        <li><a id="logout" href="#">Log out</a></li>
+        <li class="logout"><a href="/create.html">Create/Edit Card</a></li>
+        <li class="hide"><a href="/signup.html" class="button-sign-in">Sign-Up</a></li>
+        <li class="hide"><a class="hide" href="/login.html">Login</a></li>
+        <li class="logout"><a id="logout" href="#">Log out</a></li>
       </ul>
     </nav>
   </div>
@@ -24,7 +28,26 @@
 
 <body>
   <div id="card">
+    <div class="card-front">
+      <div class="name">
+        <span class="name">Bob Smith</span>
+        <div class="hr">
+          <hr />
+        </div>
+        <div class="occupation">
+          <span class="job">Student</span>
+        </div>
+      </div>
+    </div>
 
+    <div class="card-back">
+      <ul class="fa-ul">
+        <li class="info-list-item"><i class="fa-li fa fa-envelope-o"></i><span class="email">bobbysmith@gmail.com</span></li>
+        <li class="info-list-item"><i class="fa-li fa fa-black-tie"></i><span class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat.</span></li>
+        <li class="info-list-item"><i class="fa-li fa fa-linkedin-square"></i><span class="linkedin">bobSmith</span></li>
+      </ul>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
@@ -38,6 +61,17 @@
   <script>
     var $ = window.jQuery;
 
+    //check if user is not logged in
+    dpd.profiles.me(function(user) {
+      if (!user) {
+        $('.logout').hide();
+        $('.hide').show();
+      } else {
+        $('.hide').hide();
+        $('.logout').show();
+      }
+    });
+
     //log out button
     var logoutBtn = $('#logout')[0];
     logoutBtn.onclick = function() {
@@ -50,7 +84,10 @@
     };
 
     var profile = window.location.search.substr(1).split("=");
-    profile[1] = profile[1].toLowerCase();
+    if (profile) {
+      profile[1] = profile[1].toLowerCase();
+    }
+
     if (profile[0] == 'user') {
       dpd.cards.get({
         user: profile[1]
@@ -58,23 +95,19 @@
         //document.getElementById("card").innerHTML = JSON.stringify(results);
         //console.log(results, error);
         if (results == null) {
-          $("#card").append("User Not Found!");
+          $("#card").html("<h2>User not found or Card not created!</h2>");
         }
         document.title = results[0].card.name;
+        $(".logo-text").html("Me_Card");
 
-        $("#card").append('<span class="name">' + results[0].card.name + '</span>' + '<br>  ');
-        $("#card").append('<span class="subtitle"> Email  </span>');
-        $("#card").append('<email class="info">' + results[0].card.email + '</email>' + '<br>')
-        $("#card").append('<span class="subtitle"> Occupation  </span>');;
-        $("#card").append('<span class="info">' + results[0].card.job + '</span>' + '<br>');
-        $("#card").append('<span class="subtitle"> Bio  </span>');
-        $("#card").append('<span class="info">' + results[0].card.bio + '</span>' + '<br>');
-        $("#card").append('<span class="subtitle"> Linkedin  </span>');
-        $("#card").append('<span class="info">' + results[0].card.linkedin + '</span>');
+        $("span.name").html(results[0].card.name);
+        $("span.email").html(results[0].card.email);
+        $("span.job").html(results[0].card.job);
+        $("span.bio").html(results[0].card.bio);
+        $("span.linkedin").html(results[0].card.linkedin);
       });
     }
   </script>
-  </div>
 
 </body>
 

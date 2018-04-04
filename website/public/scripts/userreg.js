@@ -24,7 +24,7 @@
       return;
     }
     //check of password has one letter and number/length correct
-    if(checkPwd(data.password) == '-1') {
+    if (checkPwd(data.password) == '-1') {
       return;
     }
 
@@ -32,7 +32,7 @@
       window.location.replace('login.html');
       //console.log(todo); // display {id: "###", message: 'Hello world'}
     }, function(err) {
-      if(err.status == '400') {
+      if (err.status == '400') {
         alert('Username Taken');
       }
     });
