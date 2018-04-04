@@ -15,7 +15,6 @@
       <nav>
         <ul>
           <li><a href="/index.html">Home</a></li>
-          <li><a href="#">Search</a></li>
           <li><a id="logout" href="#">Log out</a></li>
         </ul>
       </nav>
@@ -25,6 +24,7 @@
   <body>
     <div id="card">
 
+    </div>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
       <!-- jQuery :) -->
@@ -36,6 +36,18 @@
 
       <script>
         var $ = window.jQuery;
+
+        //log out button
+        var logoutBtn = $('#logout')[0];
+        logoutBtn.onclick = function() {
+          dpd.profiles.logout(function(result, error) {
+            if (error) {
+              alert(error);
+            }
+            location.href = "/index.html";
+          });
+        };
+
         var profile = window.location.search.substr(1).split("=");
         profile[1] = profile[1].toLowerCase();
         if(profile[0] == 'user') {
@@ -58,6 +70,8 @@
             $("#card").append('<span class="info">' + results[0].card.linkedin +'</span>');
           });
         }
+
+
       </script>
 </div>
 
