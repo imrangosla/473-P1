@@ -7,7 +7,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/styles.css">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
+
 
 <body>
   <header>
@@ -16,6 +19,7 @@
       <nav>
         <ul>
           <li><a href="/index.html">Home</a></li>
+          <li><a href="#">Search</a></li>
           <li class="logout"><a href="/create.html">Create Card</a></li>
           <li class="hide"><a href="/signup.html" class="button-sign-in">Sign-Up</a></li>
           <li class="hide"><a class="hide" href="/login.html">Login</a></li>
@@ -25,13 +29,26 @@
     </div>
   </header>
 
-  <section class="home-text">
-    <h1>
-      Making you look good <br>
-      <span>Say hello to paperless business cards</span> <br>
-      <a href="#" class="button button-accent">See some samples</a>
-    </h1>
-  </section>
+  <div class="card-front">
+    <div class="name">
+      Bob Smith
+      <div class="hr">
+        <hr />
+      </div>
+      <div class="occupation">
+        Student
+      </div>
+    </div>
+  </div>
+
+  <div class="card-back">
+    <ul class="fa-ul">
+      <li class="info-list-item"><i class="fa-li fa fa-envelope-o"></i>bobbysmith@gmail.com</li>
+      <li class="info-list-item"><i class="fa-li fa fa-black-tie"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat.</li>
+      <li class="info-list-item"><i class="fa-li fa fa-linkedin-square"></i>bobSmith</li>
+    </ul>
+  </div>
 
   <!-- jQuery :) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
