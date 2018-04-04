@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <title>Me_Card</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="stylesheets/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>Me_Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+  </head>
 
 
 
@@ -20,7 +19,7 @@
           <li><a href="/index.html">Home</a></li>
           <li class="logout"><a href="/create.html">Create Card</a></li>
           <li class="hide"><a href="/signup.html" class="button-sign-in">Sign-Up</a></li>
-          <li class="hide"><a class="hide" href="/login.html">Login</a></li>
+          <li class="hide" ><a class="hide" href="/login.html">Login</a></li>
           <li class="logout"><a id="logout" href="#">Log out</a></li>
         </ul>
       </nav>
@@ -31,42 +30,42 @@
     <h1>
       Making you look good <br>
       <span>Say hello to paperless business cards</span> <br>
-      <a href="/testcard.html" class="button button-accent">See some samples</a>
+      <a href="#" class="button button-accent">See some samples</a>
     </h1>
   </section>
 
-  <!-- jQuery :) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-  <!-- jQuery Modal -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-  <script src="/dpd.js" type="text/javascript"></script>
-  <script type="text/javascript" src="scripts/formHandler.js"></script>
-  <script>
-    var $ = window.jQuery;
+      <!-- jQuery :) -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+      <!-- jQuery Modal -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+      <script src="/dpd.js" type="text/javascript"></script>
+      <script type="text/javascript" src="scripts/formHandler.js"></script>
+      <script>
+      var $ = window.jQuery;
 
-    //check if user is not logged in
-    dpd.profiles.me(function(user) {
-      if (!user) {
-        $('.logout').hide();
-        $('.hide').show();
-      } else {
-        $('.hide').hide();
-        $('.logout').show();
-      }
-    });
-
-    //log out button
-    var logoutBtn = $('#logout')[0];
-    logoutBtn.onclick = function() {
-      dpd.profiles.logout(function(result, error) {
-        if (error) {
-          alert(error);
+      //check if user is not logged in
+      dpd.profiles.me(function(user) {
+        if (!user) {
+          $('.logout').hide();
+          $('.hide').show();
         }
-        location.href = "/index.html";
+        else {
+          $('.hide').hide();
+          $('.logout').show();
+        }
       });
-    };
-  </script>
+
+      //log out button
+      var logoutBtn = $('#logout')[0];
+      logoutBtn.onclick = function() {
+        dpd.profiles.logout(function(result, error) {
+          if (error) {
+            alert(error);
+          }
+          location.href = "/index.html";
+        });
+      };
+      </script>
 
 </body>
-
 </html>
