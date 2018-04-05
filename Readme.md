@@ -8,7 +8,6 @@ Website where a users can create their own “business card” and link to perso
 * Rocio Salguero
 * Raza Tahir
 * Syed Hussaini
-* Dylan Roman
 
 ## How to install 
 * Must have Git (optional), Node.js, Deployd, and MongoDB installed
