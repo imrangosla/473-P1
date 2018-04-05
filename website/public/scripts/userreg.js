@@ -27,6 +27,7 @@
     if (checkPwd(data.password) == '-1') {
       return;
     }
+    //Need to fix here !! 
 
     dpd.profiles.post(data).then(function(response) {
       window.location.replace('login.html');
